@@ -1,0 +1,88 @@
+<div class="col-md-6 col-md-offset-3">
+    <h3>Please Add Your Details Below</h3>
+    <form name="form" ng-submit="addUserScope.adduser()" role="form">
+         <div class="form-group" ng-class="{ 'has-error': form.salaution.$dirty && form.salaution.$error.required }">
+            <label form="salaution">Salaution</label>
+            <select name="salutation" ng-model="addUserScope.userDetails.salutation" class="form-control" ng-required="true">-->
+                            <option value="">---Select---</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+            </select>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" placeholder="First Name" id="firstname" class="form-control" ng-model="addUserScope.userDetails.firstName" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">EMail is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="form-control" ng-model="addUserScope.userDetails.lastName" required />
+            <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last Name is required</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="addUserScope.userDetails.email" required disabled/>
+            <!--<span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>-->
+        </div>
+
+
+        <div class="form-group ">
+            <label>DOB</label>
+            <input type="date" class="form-control" id="datepicker" placeholder="Date of Birth" ng-model="addUserScope.userDetails.dob" name="dob" data-date-format="YYYY-MMMM-DD " ng-required="true">
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">DOB is required</span>
+        </div>
+
+
+         <div class="form-group" ng-class="{ 'has-error': form.salaution.$dirty && form.salaution.$error.required }">
+            <label form="relationshipstatus">Relantionship Status</label>
+            <select name="relationshipstatus" ng-model="addUserScope.userDetails.status" class="form-control" ng-required="true">-->
+                            <option value="">---Select---</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married.</option>
+                            <option value="unmarried">Unmarried</option>
+            </select>
+        </div>
+
+         <div class="form-group" ng-class="{ 'has-error': form.salaution.$dirty && form.salaution.$error.required }">
+            <label>Gender</label>
+            <select name="salutation" ng-model="addUserScope.userDetails.gender" class="form-control" ng-required="true">-->
+                            <option value="">---Select---</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+            </select>
+        </div>
+
+
+        <div class="" style="padding:25px;border:1px solid #e8e8e8">
+            <div class="" ng-repeat="address in addUserScope.userDetails.address" style="padding:20px ; border:1px solid #e8e8e8">
+                <select name="salutation" ng-model="address.label" class="form-control" ng-required="true" style="margin-bottom:10px">
+                                <option value="">---Select Label---</option>
+                                <option value="home">Home</option>
+                                <option value="work">Work</option>
+                </select>
+                <input type="text" ng-model="address.landmark" placeholder="Enter a landmark" class="form-control">
+                <textarea style="margin-top:10px" class="form-control" placeholder="Home Address" id="homeaddress" ng-model="address.name" name="homeaddress" ng-required="true"></textarea>
+                <div style="text-align:right" ng-show="$last">
+                    <input type="button" value="Add" style="margin-top:10px" class="btn btn-primary" ng-click="addUserScope.addRow()">
+                </div>
+                <div style="text-align:right" ng-show="!$last">
+                    <input type="button" value="Remove" style="margin-top:10px" class="btn btn-primary" ng-click="addUserScope.removeRow($index)">
+                </div>
+            </div>
+        </div>
+
+        <div class >
+
+
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Submit</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="#!/login" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+    <!--<div ng-show="registerScope.successmsg">  is saved.</div>-->
+    <!--<div ng-show="registerScope.errormsg" ></div> Currency is not saved. Please try again.</a> </div>-->
+</div>

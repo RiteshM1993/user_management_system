@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">User Management System</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="pull-right"><a ng-click="addUserScope.logout()">Signout</a></li>
+        <ul>
+  </div>
+</nav>
+<div class="container-fluid">
+    <div class="row" style="margin-bottom:20px">
+        <div ng-init="addUserScope.getUserlist()">
+            <button class="pull-right btn btn-primary" ui-sref="adduserdetails({email:addUserScope.email,status:true})">Add/Edit</button>
+        </div>
+    </div>
+    <div class="row">
+            <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <td>Salutation</td>
+                <td>Firstname</td>
+                <td>lastname</td>
+                <td>Email</td>
+                <td>Date Of Birth</td>
+                <td>Relationship status</td>
+                <td>Gender</td>
+                <td>Address</td>
+
+            </tr>
+            <tr>
+                <td>
+                    {{addUserScope.userDetails.salutation == null ? '-':addUserScope.userDetails.salutation}}
+                </td>
+                <td>
+                    {{addUserScope.userDetails.firstName == null ? '-':addUserScope.userDetails.firstName}}
+                </td>
+                <td>
+                    {{addUserScope.userDetails.lastName == null ? '-':addUserScope.userDetails.lastName}}
+
+                </td>
+                <td>
+                    {{addUserScope.userDetails.email == null ? '-':addUserScope.userDetails.email}}
+
+                </td>
+                <td>
+                    {{addUserScope.userDetails.dob == null ? '-':addUserScope.userDetails.dob}}
+                </td>
+                <td>
+                   {{addUserScope.userDetails.status == null ? '-':addUserScope.userDetails.status}}
+
+                </td>
+                <td>
+                    {{addUserScope.userDetails.gender == null ? '-':addUserScope.userDetails.gender}}
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</div>

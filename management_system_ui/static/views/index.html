@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="userManagementApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>USER-MS</title>
+    <script src="{% static 'app/js/node_modules/angular/angular.min.js' %}"></script>
+    <script src="{% static 'app/js/node_modules/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
+    <script src="{% static 'app/app.js' %}"></script>
+    <script src="{% static 'app/controllers/register.js' %}"></script>
+    <script src="{% static 'app/services/registerservices.js' %}"></script>
+    <script src="{% static 'app/controllers/login.js' %}"></script>
+    <script src="{% static 'app/services/loginservices.js' %}"></script>
+    <script src="{% static 'app/controllers/adduser.js' %}"></script>
+    <script src="{% static 'app/services/adduserservices.js' %}"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div ui-view="mainContent">
+
+    </div>
+</body>
+</html>
